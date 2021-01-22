@@ -1,0 +1,34 @@
+/*
+
+In this Kata, you will be given a string and your task is to return the most valuable character. The value of a character is the difference between the index of its last occurrence and the index of its first occurrence. Return the character that has the highest value. If there is a tie, return the alphabetically lowest character. [For Golang return rune]
+
+All inputs will be lower case.
+
+For example:
+solve('a') = 'a'
+solve('ab') = 'a'. Last occurrence is equal to first occurrence of each character. Return lexicographically lowest.
+solve("axyzxyz") = 'x'
+
+
+*/
+
+function solve(st) {
+  let ob = {};
+   for(let el of st){
+    ob[el] = st.lastIndexOf(el) - st.indexOf(el);
+   }
+  let arr = Object.entries(ob);
+  let max = arr[0][1];
+  let s = arr[0][0];
+  for (let el of arr){
+    if(el[1] > max) {
+      max = el[1] ; s = el[0];
+    };
+    if(el[1] === max) {
+      if(el[0] < s) {
+      max = el[1]; s = el[0];
+      }
+    }
+  }
+ return s;
+}
