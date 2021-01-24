@@ -1,0 +1,18 @@
+/*
+
+Write a function that takes an array and counts the number of each unique element present.
+
+count(['james', 'james', 'john']) 
+#=> { 'james': 2, 'john': 1}
+
+*/
+
+function count(array){
+  let obj = {};
+  for (let el of array){
+    let arr = (array.filter((elem, i) => elem === el)).length;
+    if(!(el in obj)) 
+      obj[el] = arr;
+  }
+  return obj;
+}
