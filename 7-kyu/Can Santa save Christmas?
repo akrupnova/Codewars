@@ -1,0 +1,21 @@
+/*
+
+You will get an array as input with time durations as string in the following format: HH:MM:SS.
+Each duration is a present Santa has to distribute. Determine whether he can do it in 24 hours or not.
+
+Test.assertEquals(determineTime(["00:30:00", "02:30:00", "00:15:00"]), true);
+Test.assertEquals(determineTime([]), true);
+Test.assertEquals(determineTime(["12:00:00", "12:00:00"]), true);
+Test.assertEquals(determineTime(["06:00:00","12:00:00","06:30:00"]), false);
+
+*/
+
+
+function determineTime(dur){
+  let time = 0;
+  for (let el of dur){
+    [h, m, s] = el.split(':');
+    time += +h * 3600 + +m  *60 + +s; 
+  }
+  return time <= 24 * 3600;
+}
