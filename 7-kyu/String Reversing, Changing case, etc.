@@ -1,0 +1,28 @@
+/*
+
+Given 2 string parameters, show a concatenation of:
+
+the reverse of the 2nd string with inverted case; e.g Fish -> HSIf
+a separator in between both strings: @@@
+the 1st string reversed with inverted case and then mirrored; e.g Water -> RETAwwATER
+** Keep in mind that this kata was initially designed for Shell, I'm aware it may be easier in other languages.**
+
+*/
+
+function reverseAndMirror(s1,s2) {
+  s2 = s2.split('').reverse();
+  for(let i = 0; i < s2.length; i++){
+    if(s2[i].toUpperCase() === s2[i]) 
+      s2[i] = s2[i].toLowerCase();
+    else s2[i] = s2[i].toUpperCase();
+  }
+  let s3 = s1.split('').reverse().join('')
+  s1 = (s3 + s1).split('');
+  for(let i = 0; i < s1.length; i++){
+     if(s1[i].toUpperCase() === s1[i])
+       s1[i] = s1[i].toLowerCase();
+     else s1[i] = s1[i].toUpperCase();
+  }
+  return s2.join('') + '@@@' + s1.join('');
+}
+
