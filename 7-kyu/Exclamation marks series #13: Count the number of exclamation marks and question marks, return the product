@@ -1,0 +1,27 @@
+/*
+
+Count the number of exclamation marks and question marks, return the product.
+
+Examples
+Product("") == 0
+product("!") == 0
+Product("!ab? ?") == 2
+Product("!!") == 0
+Product("!??") == 2
+Product("!???") == 3
+Product("!!!??") == 6
+Product("!!!???") == 9
+Product("!???!!") == 9
+Product("!????!!!?") == 20
+
+*/
+
+function product(s){
+  let count1 = 0;
+  let count2 = 0;
+  for (let i = 0; i < s.length; i++){
+    if(s[i]=== '!') count1++;
+    if(s[i]=== '?') count2++;
+  }
+  return count1 * count2;
+}
